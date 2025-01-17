@@ -277,14 +277,24 @@ public class AdminEndpoint : EndpointBase
         {
             var userRepository = new UserRepository();
             var existingUser = userRepository.GetById(updateUserId);
+
             if (existingUser == null)
             {
                 return Json(false);
             }
 
-            existingUser.Login = updateUserLogin;
-            existingUser.Password = updateUserPassword;
+            if (!string.IsNullOrEmpty(updateUserLogin))
+            {
+                existingUser.Login = updateUserLogin;
+            }
+
+            if (!string.IsNullOrEmpty(updateUserPassword))
+            {
+                existingUser.Password = updateUserPassword;
+            }
+
             userRepository.UpdateUser(existingUser);
+
             return Json(userRepository.GetUsers());
         }
         catch (Exception ex)
@@ -294,6 +304,7 @@ public class AdminEndpoint : EndpointBase
             return Json(new { error = ex.Message });
         }
     }
+
 
     [Post("admin/movie/update")]
     public IHttpResponseResult UpdateMovie(int updateMovieId, string updateMovieName, string updateMovieEnglishName, string updateMovieYear, string updateMovieCountry, string updateMovieGenre, string updateMovieDirector, string updateMovieActors, string updateMovieDescription, string updateMovieLink, string updateMovieImageLink)
@@ -308,16 +319,55 @@ public class AdminEndpoint : EndpointBase
                 return Json(false);
             }
 
-            existingMovie.Name = updateMovieName;
-            existingMovie.EnglishName = updateMovieEnglishName;
-            existingMovie.Year = updateMovieYear;
-            existingMovie.Country = updateMovieCountry;
-            existingMovie.Genre = updateMovieGenre;
-            existingMovie.Director = updateMovieDirector;
-            existingMovie.Actors = updateMovieActors;
-            existingMovie.Description = updateMovieDescription;
-            existingMovie.MovieLink = updateMovieLink;
-            existingMovie.ImageLink = updateMovieImageLink;
+            if (!string.IsNullOrEmpty(updateMovieName))
+            {
+                existingMovie.Name = updateMovieName;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieEnglishName))
+            {
+                existingMovie.EnglishName = updateMovieEnglishName;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieYear))
+            {
+                existingMovie.Year = updateMovieYear;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieCountry))
+            {
+                existingMovie.Country = updateMovieCountry;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieGenre))
+            {
+                existingMovie.Genre = updateMovieGenre;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieDirector))
+            {
+                existingMovie.Director = updateMovieDirector;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieActors))
+            {
+                existingMovie.Actors = updateMovieActors;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieDescription))
+            {
+                existingMovie.Description = updateMovieDescription;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieLink))
+            {
+                existingMovie.MovieLink = updateMovieLink;
+            }
+
+            if (!string.IsNullOrEmpty(updateMovieImageLink))
+            {
+                existingMovie.ImageLink = updateMovieImageLink;
+            }
 
             movieRepository.UpdateMovie(existingMovie);
 
@@ -330,4 +380,5 @@ public class AdminEndpoint : EndpointBase
             return Json(new { error = ex.Message });
         }
     }
+
 }
