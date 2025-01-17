@@ -1,0 +1,156 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>Вход</title>
+	<meta charset="UTF-8">
+	<meta name="title" content="Фильмы и сериалы в 4K UHD и Full HD качестве смотреть онлайн бесплатно">
+	<meta name="description" content="Смотреть бесплатно фильмы, мультфильмы и сериалы в 4K UHD и Full HD качестве смотреть онлайн бесплатно">
+	<link rel="stylesheet" href="assets/css/common.css" as="style">
+	<link rel="stylesheet" href="assets/css/styles.css" as="style">
+	<link rel="stylesheet" href="assets/css/engine.css" as="style">
+	<link rel="stylesheet" href="assets/css/fontawesome.css" as="style">
+
+	<link href="assets/css/common.css" type="text/css" rel="stylesheet" />
+	<link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
+	<link href="assets/css/engine.css" type="text/css" rel="stylesheet" />
+	<link href="assets/css/fontawesome.css" type="text/css" rel="stylesheet" />
+	<link href="assets/css/login.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div class="wrapper  add-bg">
+
+		<div class="wrapper-container wrapper-main">
+
+			<header class="header vw100 anim" id="header">
+				<div class="header__inner d-flex ai-center anim">
+					<button class="header__btn-menu js-show-menu"><span class="fal fa-bars"></span></button>
+					<a href="/index" class="logo header__logo">Kubik<span>TV</span>5</a>
+					<div class="header__search flex-grow-1">
+						<form id="quicksearch" method="post">
+							<input type="hidden" name="do" value="search">
+							<input type="hidden" name="subaction" value="search">
+							<div class="header__search-box">
+								<input id="story" name="story" placeholder="Поиск по сайту..." type="text" autocomplete="off">
+								<button type="submit" class="search-btn"><span class="fal fa-search"></span></button>
+							</div>
+						</form>
+					</div>
+					<a href="/index"><button class="header__btn-login">Вернуться</button></a>
+					<ul class="theme-toggle" title="Сменить цвет дизайна">
+						<li><span class="fal fa-sun"></span></li>
+						<li><span class="fal fa-moon"></span></li>
+					</ul>
+					
+				</div>
+				<div class="header__menu">
+					<div class="header__menu-inner wrapper-container">	<div class="nav-col">
+								<div class="nav-title">Жанры</div>
+								<ul class="nav-menu">
+                                    <li><a href="/anime/">Аниме</a></li>
+									<li><a href="/biographies/">Биографические</a></li>
+									<li><a href="/action/">Боевики</a></li>
+									<li><a href="/westerns/">Вестерны</a></li>
+									<li><a href="/war/">Военные</a></li>
+									<li><a href="/detective/">Детективы</a></li>
+									<li><a href="/documentary/">Документальные</a></li>
+									<li><a href="/dramas/">Драмы</a></li>
+									<li><a href="/historical/">Исторические</a></li>
+									<li><a href="/comedy/">Комедии</a></li>
+									<li><a href="/short/">Короткометражные</a></li>
+									<li><a href="/crime/">Криминальные</a></li>
+									<li><a href="/melodrama/">Мелодрамы</a></li>
+									<li><a href="/musical/">Музыкальные</a></li>
+									<li><a href="/musicals/">Мюзиклы</a></li>
+									<li><a href="/adventure/">Приключенческие</a></li>
+									<li><a href="/family/">Семейные</a></li>
+                                    <li><a href="/sports/">Спортивные</a></li>
+									<li><a href="/thrillers/">Триллеры</a></li>
+                                    <li><a href="/horror/">Ужасы</a></li>
+									<li><a href="/fantastic/">Фантастика</a></li>
+                                    <li><a href="/fantasy/">Фэнтези</a></li>
+								</ul>
+							</div>
+							<div class="nav-col">
+	<div class="nav-title">По годам</div>
+								<ul class="nav-menu">
+                                    <li><a href="/movies-and-series-2024/">2024</a></li>
+									<li><a href="/movies-and-series-2023/">2023</a></li>
+                                    <li><a href="/movies-and-series-2022/">2022</a></li>
+                                    <li><a href="/movies-and-series-2021/">2021</a></li>
+                                    <li><a href="/movies-and-series-2020/">2020</a></li>
+                                    <li><a href="/movies-2010-2019/">2010-е</a></li>
+                                    <li><a href="/movies-2000-2009/">2000-е</a></li>
+                                    <li><a href="/movies-1990-1999/">1990-е</a></li>
+                                    <li><a href="/movies-1980-1989/">1980-е</a></li>
+                                    <li><a href="/retro/">Ретро</a></li>
+								</ul>		
+							</div></div>
+				</div>
+			</header>
+
+
+
+
+			
+
+
+
+
+			<!-- END HEADER -->
+
+			<main class="content">
+
+				
+                <style>
+                    .login-container *{
+                        margin: 15px;
+                    }
+                </style>
+				<div class="login-container">
+					<h2>Вход</h2>
+					<!--ERROR: USER DOESN'T EXIST-->
+					<form action="" method="post">
+						<label for="login">Login:</label>
+						<input type="text" id="login" name="login" required>
+						<br>
+						<label for="password">Password:</label>
+						<input type="password" id="password" name="password" required>
+						<br>
+						<button type="submit">Login</button>
+					</form>
+					<a href="/register">Нет аккаунта? Зарегистрируйтесь</a>
+				</div>
+				
+     
+			</main>
+
+			<!-- END CONTENT -->
+
+			<footer class="footer d-flex ai-center vw100">
+				<div class="logo footer__logo">Kubik<span>TV</span>5</div>
+				<ul class="footer__menu flex-grow-1 d-flex jc-flex-end">
+					<li><a href="/">Главная</a></li>
+                    		<li><a href="/copyright-holders.html">Правообладателям</a></li>
+					<li><a href="/user-agreement.html">Пользовательское соглашение</a></li>
+                    <li><a target="_blank" href="mailto:kubik991@yandex.ru">kubik991@yandex.ru</a></li>
+				</ul>
+			</footer>
+
+			<!-- END FOOTER -->
+
+		</div>
+
+		<!-- END WRAPPER-MAIN -->
+
+	</div>
+
+	<!-- END WRAPPER -->
+	<script src="assets/js/script.js"></script>
+</body>
+</html>
+
+<!-- DataLife Engine Copyright SoftNews Media Group (https://dle-news.ru) -->

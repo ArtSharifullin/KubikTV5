@@ -1,0 +1,14 @@
+{
+  "Domain": "+",
+  "Port": "8888",
+  "StaticDirectoryPath": "public/",
+  "EmailServiceConfiguration": {
+    "Host": "smtp.gmail.com",
+    "Port": "25",
+    "UserName": "artur.sharifullin.2000@inbox.ru",
+    "Password": "K7rJdvHdTJpx7niLRmEt"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=db;Database=Users;User Id=sa;Password=P@ssw0rd;"
+  }
+}

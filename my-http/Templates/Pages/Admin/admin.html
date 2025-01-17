@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>AdminPanel</title>
+    <meta charset="UTF-8">
+	<link href="assets/css/admin.css" rel="stylesheet" />
+</head>
+
+<body>
+    <a href="/index"><button class="comebackButton">Вернуться на сайт</button></a>
+
+    <div class="container">
+        <h1>Админ-панель</h1>
+
+        <div class="block">
+            <h2>Элементы из таблицы Users</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Login</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody id="userTableBody">
+                    {%for% user %in% users}
+                    <tr>
+                        <td>{{user.Id}}</td>
+                        <td class="truncate">{{user.Login}}</td>
+                        <td class="truncate">{{user.Password}}</td>
+                    </tr>
+                    {%/for%}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Блок 1: Добавить пользователя -->
+        <div class="block">
+            <h2>Добавить пользователя</h2>
+            <form action="/admin/user/add" method="post" id="add-user-form">
+                <div class="form-group">
+                    <label for="addUserLogin">Login:</label>
+                    <input type="text" id="addUserLogin" name="addUserLogin" required>
+                </div>
+                <div class="form-group">
+                    <label for="addUserPassword">Password:</label>
+                    <input type="password" id="addUserPassword" name="addUserPassword" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="block">
+            <h2>Изменить пользователя по ID</h2>
+            <form action="/admin/user/update" method="post" id="update-user-form">
+                <div class="form-group">
+                    <label for="updateUserId">ID:</label>
+                    <input type="text" id="updateUserId" name="updateUserId" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateUserLogin">Login:</label>
+                    <input type="text" id="updateUserLogin" name="updateUserLogin" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateUserPassword">Password:</label>
+                    <input type="text" id="updateUserPassword" name="updateUserPassword" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Подтвердить изменения</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="block">
+            <h2>Удалить пользователя по ID</h2>
+            <form action="/admin/user/delete" method="post" id="delete-user-form">
+                <div class="form-group">
+                    <label for="deleteUserId">ID:</label>
+                    <input type="text" id="deleteUserId" name="deleteUserId" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Удалить</button>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="block">
+            <h2>Элементы из таблицы Movies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>EnglishName</th>
+                        <th>Year</th>
+                        <th>Country</th>
+                        <th>Genre</th>
+                        <th>Director</th>
+                        <th>Actors</th>
+                        <th>Description</th>
+                        <th>MovieLink</th>
+                        <th>ImageLink</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody id="movieTableBody">
+                    {%for% movie %in% movies}
+                    <tr>
+                        <td>{{movie.Id}}</td>
+                        <td class="truncate">{{movie.Name}}</td>
+                        <td class="truncate">{{movie.EnglishName}}</td>
+                        <td>{{movie.Year}}</td>
+                        <td>{{movie.Country}}</td>
+                        <td>{{movie.Genre}}</td>
+                        <td>{{movie.Director}}</td>
+                        <td class="truncate">{{movie.Actors}}</td>
+                        <td class="truncate">{{movie.Description}}</td>
+                        <td class="truncate">{{movie.MovieLink}}</td>
+                        <td class="truncate">{{movie.ImageLink}}</td>
+                        <td class="truncate">{{movie.Link}}</td>
+                    </tr>
+                    {%/for%}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="block">
+            <h2>Добавить фильм</h2>
+            <form action="/admin/movie/add" method="post" id="add-movie-form">
+                <div class="form-group">
+                    <label for="addMovieName">Name:</label>
+                    <input type="text" id="addMovieName" name="addMovieName" required>
+                </div>
+                <div class="form-group">
+                    <label for="addMovieEnglishName">English Name:</label>
+                    <input type="text" id="addMovieEnglishName" name="addMovieEnglishName" required>
+                </div>
+                <div class="form-group">
+                    <label for="addMovieYear">Year:</label>
+                    <input type="text" id="addMovieYear" name="addMovieYear">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieCountry">Country:</label>
+                    <input type="text" id="addMovieCountry" name="addMovieCountry">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieGenre">Genre:</label>
+                    <input type="text" id="addMovieGenre" name="addMovieGenre">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieDirector">Director:</label>
+                    <input type="text" id="addMovieDirector" name="addMovieDirector">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieActors">Actors:</label>
+                    <input type="text" id="addMovieActors" name="addMovieActors">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieDescription">Description:</label>
+                    <textarea id="addMovieDescription" name="addMovieDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="addMovieLink">Movie Link:</label>
+                    <input type="text" id="addMovieLink" name="addMovieLink">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieImageLink">Image Link:</label>
+                    <input type="text" id="addMovieImageLink" name="addMovieImageLink">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Добавить</button>
+                </div>
+            </form>
+        </div>
+
+
+
+        <!-- Блок для обновления данных фильма -->
+        <div class="block">
+            <h2>Изменить фильм по ID</h2>
+            <form action="/admin/movie/update" method="post" id="update-movie-form">
+                <div class="form-group">
+                    <label for="updateMovieId">ID:</label>
+                    <input type="text" id="updateMovieId" name="updateMovieId" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieName">Name:</label>
+                    <input type="text" id="updateMovieName" name="updateMovieName" required>
+                </div>
+                <div class="form-group">
+                    <label for="addMovieEnglishName">English Name:</label>
+                    <input type="text" id="updateMovieEnglishName" name="updateMovieEnglishName" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieYear">Year:</label>
+                    <input type="text" id="updateMovieYear" name="updateMovieYear" required>
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieCountry">Country:</label>
+                    <input type="text" id="updateMovieCountry" name="updateMovieCountry">
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieGenre">Genre:</label>
+                    <input type="text" id="updateMovieGenre" name="updateMovieGenre">
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieDirector">Director:</label>
+                    <input type="text" id="updateMovieDirector" name="updateMovieDirector">
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieActors">Actors:</label>
+                    <input type="text" id="updateMovieActors" name="updateMovieActors">
+                </div>
+                <div class="form-group">
+                    <label for="addMovieDescription">Description:</label>
+                    <textarea id="updateMovieDescription" name="updateMovieDescription"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieLink">Movie Link:</label>
+                    <input type="text" id="updateMovieLink" name="updateMovieLink">
+                </div>
+                <div class="form-group">
+                    <label for="updateMovieImageLink">Image Link:</label>
+                    <input type="text" id="updateMovieImageLink" name="updateMovieImageLink">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Подтвердить изменения</button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Блок 4: Удалить фильм -->
+        <div class="block">
+            <h2>Удалить фильм по ID</h2>
+            <form action="/admin/movie/delete" method="post" id="delete-movie-form">
+                <div class="form-group">
+                    <label for="deleteMovieId">ID:</label>
+                    <input type="text" id="deleteMovieId" name="deleteMovieId" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Удалить</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="popup-overlay" id="popup-overlay"></div>
+        <div class="popup" id="popup">
+            <span class="popup-close" id="popup-close">&times;</span>
+            <div class="popup-content" id="popup-content"></div>
+        </div>
+
+
+        <div class="block">
+            <h2>Элементы из таблицы Admins</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Login</th>
+                        <th>Password</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    {%for% admin %in% admins}
+                    <tr>
+                        <td>{{admin.Id}}</td>
+                        <td class="truncate">{{admin.Login}}</td>
+                        <td class="truncate">{{admin.Password}}</td>
+                        <td class="truncate">{{admin.Name}}</td>
+                    </tr>
+
+                    {%/for%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="assets/js/admin-popup.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
+
+<!-- DataLife Engine Copyright SoftNews Media Group (https://dle-news.ru) -->
