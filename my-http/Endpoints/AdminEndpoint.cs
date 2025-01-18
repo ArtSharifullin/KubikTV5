@@ -314,6 +314,8 @@ public class AdminEndpoint : EndpointBase
             var movieRepository = new MovieRepository();
             var existingMovie = movieRepository.GetById(updateMovieId);
 
+            Console.WriteLine(existingMovie.Id);
+
             if (existingMovie == null)
             {
                 return Json(false);

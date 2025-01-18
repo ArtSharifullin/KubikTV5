@@ -135,6 +135,33 @@ public class ORMContext<T> where T : class, new()
         }
     }
 
+    public void UpdateMovie(T entity)
+    {
+        var properties = entity.GetType().GetProperties()
+            .Where(p => p.Name != "id");
+        var values = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));
+        string query = $"UPDATE {typeof(T).Name}s SET {values} WHERE id = @id";
+        using (var command = _dbConnection.CreateCommand())
+        {
+            command.CommandText = query;
+            var idParameter = command.CreateParameter();
+            idParameter.ParameterName = "@id";
+            idParameter.Value = entity.GetType().GetProperty("id").GetValue(entity);
+            command.Parameters.Add(idParameter);
+            foreach (var property in properties)
+            {
+                var parameter = command.CreateParameter();
+                parameter.ParameterName = '@' + property.Name;
+                parameter.Value = property.GetValue(entity) ?? DBNull.Value;
+                command.Parameters.Add(parameter);
+            }
+            _dbConnection.Open();
+            command.ExecuteNonQuery();
+            _dbConnection.Close();
+        }
+    }
+
+
     /*public void Update(T entity)
     {
         var properties = entity.GetType().GetProperties()
